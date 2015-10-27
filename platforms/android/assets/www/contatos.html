@@ -1,0 +1,112 @@
+﻿<script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
+<script type="text/javascript" src="scripts/angular/angular.min.js"></script>
+<script type="text/javascript" src="scripts/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="scripts/angular/angular-translate.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="contents/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="contents/bootstrap/css/bootstrap-lightbox.css">
+
+<link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile.custom.structure.css">
+<link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile.custom.structure.min.css">
+<link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile.custom.theme.css">
+<link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile.custom.theme.min.css">
+
+<script type="text/javascript" src="scripts/ui-bootstrap-tpls-0.11.2.min.js"></script>
+<script type="text/javascript" src="contents/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="contents/bootstrap/js/bootstrap-lightbox.js"></script>
+
+<script type="text/javascript" src="contents/js/jquery.mobile.custom.js"></script>
+<script type="text/javascript" src="contents/js/jquery.mobile.custom.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady2, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady2() {
+        var options = new ContactFindOptions();
+        options.filter = "";
+        options.multiple = true;
+        var fields = ["*"];
+        navigator.contacts.find(fields, onSuccess, onError, options);
+    }
+
+    // onSuccess: Get a snapshot of the current contacts
+    //
+    function onSuccess(contacts) {
+
+        var html = "";
+        for (var i = 0; i < contacts.length; i++) {
+            if ($.trim(contacts[i].displayName).length != 0 || $.trim(contacts[i].nickName).length != 0) {
+                html += '<li>';
+                html += '<h2>' + contacts[i].displayName ? contacts[i].displayName : contacts[i].nickName + '</h2>';
+                if (contacts[i].phoneNumbers) {
+                    html += '<ul class="innerlsv" data-role="listview" data-inset="true">';
+                    html += '<li><h3>Phone Numbers</h3></li>';
+                    for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+                        html += "<li>Type: " + contacts[i].phoneNumbers[j].type + "<br/>" +
+                            "Value: " + contacts[i].phoneNumbers[j].value + "<br/>" +
+                            "Preferred: " + contacts[i].phoneNumbers[j].pref + "</li>";
+                    }
+                    html += "</ul>";
+                }
+                html += '</li>';
+            }
+        }
+        if (contacts.length === 0) {
+            html = '<li>';
+            html += '<h2>No Contacts</h2>';
+            html += '</li>';
+        }
+        
+        $("#contactsList").html(html);
+
+        $("#contactsList").listview().listview('refresh');
+        $(".innerlsv").listview().listview('refresh');
+
+    };
+
+    // onError: Failed to get the contacts
+    //
+    function onError(contactError) {
+        alert('onError!');
+    }
+
+</script>
+<div>
+    <div id="main">
+
+
+        <div data-role="page">
+    <div data-role="header" data-position="fixed" data-theme="b" data-add-back-btn="true">
+        <h1>Terceira Idade</h1>
+    </div>
+    <div class="wrapper">
+        <h1>My Contacts</h1>
+        <ul id="contactsList" data-role="listview" data-filter="true" data-filter-placeholder="Search Contacts..." data-inset="true">
+            <li>
+                <h2>Loading Contacts..</h2>
+            </li>
+			
+        </ul>
+		
+		<ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+			<li><a href="index.html">Adam Kinkaid</a></li>
+			<li><a href="index.html">Alex Wickerham</a></li>
+			<li><a href="index.html">Avery Johnson</a></li>
+			<li><a href="index.html">Bob Cabot</a></li>
+			<li><a href="index.html">Caleb Booth</a></li>
+			<li><a href="index.html">Christopher Adams</a></li>
+			<li><a href="index.html">Culver James</a></li>
+		</ul>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h1>All Rights Reserved</h1>
+    </div>
+</div>
+    </div>
+
+</div>

@@ -1,0 +1,99 @@
+﻿<script type="text/javascript" src="scripts/angular/angular.min.js"></script>
+<script type="text/javascript" src="scripts/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="scripts/angular/angular-translate.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile-1.4.5.min.css">
+
+<script type="text/javascript" src="contents/js/jquery.mobile-1.4.5.min.js""></script>
+
+<script id="script" src="http://cdn.rawgit.com/arschmitz/jquery-mobile-nestedlists/master/jquery.mobile.nestedlists.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady2, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady2() {
+        var options = new ContactFindOptions();
+        options.filter = "";
+        options.multiple = true;
+        var fields = ["*"];
+        navigator.contacts.find(fields, onSuccess, onError, options);
+    }
+
+    // onSuccess: Get a snapshot of the current contacts
+    //
+    function onSuccess(contacts) {
+
+        var html = "";
+        var name = "";
+        for (var i = 0; i < contacts.length; i++) {
+            if ($.trim(contacts[i].displayName).length != 0 || $.trim(contacts[i].nickName).length != 0) {
+                name = contacts[i].displayName ? contacts[i].displayName : contacts[i].nickName;
+                if (contacts[i].phoneNumbers) {
+                    for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+                        html += '<li> <a href="tel:' + contacts[i].phoneNumbers[j].value + '">' + name + '</a>';
+                        html += '</li>';
+                    }
+                }
+            }
+        }
+        if (contacts.length === 0) {
+            html = '<li>';
+            html += '<h2>No Contacts</h2>';
+            html += '</li>';
+        }
+        
+        $("#contactsList").html(html);
+
+        $("#contactsList").listview().listview('refresh');
+        $(".innerlsv").listview().listview('refresh');
+
+    };
+
+    // onError: Failed to get the contacts
+    //
+    function onError(contactError) {
+        alert('onError!');
+    }
+
+</script>
+<div>
+    <div id="main">
+
+
+        <div data-role="page">
+    <div data-role="header" data-position="fixed" data-theme="b" data-add-back-btn="true">
+        <h1>Terceira Idade</h1>
+    </div>
+    <div class="wrapper">
+        <h1>Contatos</h1>
+        <ul id="contactsList" data-role="listview" data-filter="true" data-filter-placeholder="Procurar..." data-inset="true">
+            <li>
+                <h2>Loading Contacts..</h2>
+            </li>
+ 
+        </ul>
+		
+		<!--ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+			<li><a href="index.html">Adam Kinkaid</a></li>
+			<li><a href="index.html">Alex Wickerham</a></li>
+			<li><a href="index.html">Avery Johnson</a></li>
+			<li><a href="index.html">Bob Cabot</a></li>
+			<li><a href="index.html">Caleb Booth</a></li>
+			<li><a href="index.html">Christopher Adams</a></li>
+			<li><a href="index.html">Culver James</a></li>
+		</!--ul-->
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h1 onclick="carrega('app/main.html')">voltar</h1>
+    </div>
+</div>
+    </div>
+
+</div>
