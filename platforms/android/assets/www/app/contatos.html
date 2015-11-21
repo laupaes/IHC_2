@@ -32,6 +32,7 @@
 
         var html = "";
         var name = "";
+        
         for (var i = 0; i < contacts.length; i++) {
             if ($.trim(contacts[i].displayName).length != 0 || $.trim(contacts[i].nickName).length != 0) {
                 name = contacts[i].displayName ? contacts[i].displayName : contacts[i].nickName;
