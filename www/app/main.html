@@ -11,7 +11,7 @@
 
 <style>
     .table-home img{
-        width: 75%;
+        width: 70%;
     }
     .table-home td{
         border: none !important;
@@ -21,9 +21,6 @@
 <div>
 	<div id="main">
         <div data-role="page" style="display:block;">
-			<div data-role="header" data-position="fixed" data-theme="b" data-add-back-btn="true">
-				
-			</div>
 			<div class="wrapper">
 				<table class="table table-home">
 					<tbody>
@@ -43,40 +40,41 @@
                         </tr>
 						<tr>
 							<td onclick="carrega('app/chamadas.html')">
-								
-									<img src="contents/img/chamdas.png" ></td>
-								
-							<td onclick="carrega('app/contatos.html')">
-							   
-									<img src="contents/img/contatos.png" ></td>
+								<img src="contents/img/chamdas.png" ></td>
+							<td>
+								<iframe scrolling="no" frameborder="no" clocktype="html5" style="overflow:hidden;border:0;margin:0;padding:0;width:180px;height:60px;"src="http://www.clocklink.com/html5embed.php?clock=004&timezone=local&color=green&size=180&Title=&Message=&Target=&From=2015,1,1,0,0,0&Color=green"></iframe>
+							</td>
+							
 							   
 						</tr>
 						<tr>
-							<td onclick="carrega('app/mensagens.html')">
+							<td onclick="carrega('app/contatos.html')">
+								<img src="contents/img/contatos.png" ></td>
+
+							<td onclick="carrega('app/sms.html')">
 								<img src="contents/img/msgs.png" ></td>
-							<td onclick="carrega('app/aplicativos.html')">
-								<img src="contents/img/aplicativos.png"></td>
+							
 						</tr>
                         <tr>
-                            <td onclick="carrega('app/mensagens.html')">
-                                <img src="contents/img/msgs.png">
-                            </td>
+                        	<td onclick="carrega('app/aplicativos.html')">
+								<img src="contents/img/aplicativos.png"></td>
+
                             <td onclick="carrega('app/tutorial.html')">
                                 <img src="contents/img/tutorial.jpg">
                             </td>
                         </tr>
-						<tr style="position:absolute;bottom:0;">
+						<tr>
 							<td colspan="2"><a href="tel:+1-800-555-1234"><img style="width: 88%;" src="contents/img/sos.png"></a></td>
 							
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<div data-role="footer" data-position="fixed">
-				<h1></h1>
-			</div>
+			
 		</div>
     </div>
     
 
 </div>
+
+</script>

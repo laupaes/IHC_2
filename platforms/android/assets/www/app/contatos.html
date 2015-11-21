@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile-1.4.5.min.css">
 
-<script type="text/javascript" src="contents/js/jquery.mobile-1.4.5.min.js""></script>
+<script type="text/javascript" src="contents/js/jquery.mobile-1.4.5.min.js"></script>
 
 <script id="script" src="http://cdn.rawgit.com/arschmitz/jquery-mobile-nestedlists/master/jquery.mobile.nestedlists.js"></script>
 
@@ -32,6 +32,7 @@
 
         var html = "";
         var name = "";
+        
         for (var i = 0; i < contacts.length; i++) {
             if ($.trim(contacts[i].displayName).length != 0 || $.trim(contacts[i].nickName).length != 0) {
                 name = contacts[i].displayName ? contacts[i].displayName : contacts[i].nickName;

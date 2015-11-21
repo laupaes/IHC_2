@@ -45,6 +45,15 @@
         },
         "cordova-plugin-contacts": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "org.apache.cordova.plugin.sms": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "com.cordova.plugins.sms": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "com.boyvanderlaak.cordova.plugin.orientationchanger": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {}
