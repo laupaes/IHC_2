@@ -1,0 +1,57 @@
+<script type="text/javascript" src="scripts/angular/angular.min.js"></script>
+<script type="text/javascript" src="scripts/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="scripts/angular/angular-translate.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile-1.4.5.min.css">
+
+<script type="text/javascript" src="contents/js/jquery.mobile-1.4.5.min.js"></script>
+
+<script id="script" src="http://cdn.rawgit.com/arschmitz/jquery-mobile-nestedlists/master/jquery.mobile.nestedlists.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+
+<div>
+	<div class = "wraper">
+		<input id="numberTxt" placeholder="Insira Número" value="" type="tel" />
+		<textarea id="messageTxt" placeholder="Adicionar Mensagem"></textarea>
+		<input type="button" style="font-face: 'Comic Sans MS'; font-size: larger; color: white; background-color: green"  onclick="app.sendSms()" value="Enviar SMS" />
+	</div>
+	
+	<!-- <div data-role="footer" data-position="fixed"> -->
+        <input type="button" style="font-face: 'Comic Sans MS'; font-size: larger; color: white; background-color: red" style="text-color:white" onclick="carrega('app/main.html')" value = "Voltar" />
+    <!-- </div> -->
+</div>
+
+<script type="text/javascript" charset="utf-8">
+var app = {
+    sendSms: function() {
+        var number = document.getElementById('numberTxt').value;
+        var message = document.getElementById('messageTxt').value;
+        // alert(number);
+        // alert(message);
+
+        //CONFIGURATION
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+
+        var success = function () { alert('Message sent successfully'); };
+        var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(number, message, options, success, error);
+    }
+};
+</script>
