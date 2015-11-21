@@ -1,0 +1,245 @@
+﻿<script type="text/javascript" src="scripts/angular/angular.min.js"></script>
+<script type="text/javascript" src="scripts/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="scripts/angular/angular-translate.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile-1.4.5.min.css">
+
+<script type="text/javascript" src="contents/js/jquery.mobile-1.4.5.min.js" "></script>
+
+<script id="script" src="http://cdn.rawgit.com/arschmitz/jquery-mobile-nestedlists/master/jquery.mobile.nestedlists.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady2, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady2() {
+
+    }
+
+    function openVideo(idVideo, idYoutube) {
+        $(".contentVideo").each(function (index) {
+
+            $(this).html("");
+
+        });
+        $(".embed_youtube").hide(function () {
+
+            $("#insereVideo" + idVideo).html("<iframe class='iframe_youtube' src='http://www.youtube.com/embed/" + idYoutube + "' frameborder='0' allowfullscreen></iframe>");
+            $("#video" + idVideo).show();
+
+        });
+    }
+
+
+
+</script>
+<style>
+    .imgYoutube {
+        float: left;
+    }
+
+    .imgYoutube2 {
+        width: 70px;
+        margin-left: 10px;
+    }
+
+    .iframe_youtube {
+        width: 100%;
+    }
+
+    .texto_tutorial {
+        float: left;
+        max-width: 200px;
+        margin-top: 15px;
+        text-align: center;
+    }
+</style>
+<div>
+    <div id="main">
+
+
+        <div data-role="page">
+            <div data-role="header" data-position="fixed" data-theme="b" data-add-back-btn="true">
+                <h1>Tutoriais</h1>
+            </div>
+            <div class="wrapper">
+
+                <div class="row">
+
+
+                    <div class="imgYoutube">
+
+                        <img src="contents/img/youtube.png" class="imgYoutube2" onclick="openVideo(1, 'tuddZB5akwU');" alt="">
+
+                    </div>
+                    <div class="texto_tutorial" style="" onclick="openVideo(1, 'tuddZB5akwU');">
+
+                        <label>Como usar o Bate Papo do Facebook</label>
+
+                    </div>
+
+
+                </div>
+                <div class="row embed_youtube" id="video1">
+
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                    <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10 contentVideo" id="insereVideo1" style="text-align: center;">
+
+                        <iframe class="iframe_youtube" src="http://www.youtube.com/embed/tuddZB5akwU" frameborder="0" allowfullscreen></iframe>
+
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                    <div class="imgYoutube">
+
+                        <img src="contents/img/youtube.png" class="imgYoutube2" onclick="openVideo(2, '-YCZ8jCh-0U');" alt="">
+
+                    </div>
+                    <div class="texto_tutorial" style="" onclick="openVideo(2, '-YCZ8jCh-0U');">
+
+                        <label>Como Postar Fotos no Facebook</label>
+
+                    </div>
+
+
+                </div>
+                <div class="row embed_youtube" id="video2">
+
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                    <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10 contentVideo" id="insereVideo2" style="text-align: center;">
+
+                        <iframe class="iframe_youtube" src="http://www.youtube.com/embed/-YCZ8jCh-0U" frameborder="0" allowfullscreen></iframe>
+
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                    <div class="imgYoutube">
+
+                        <img src="contents/img/youtube.png" class="imgYoutube2" onclick="openVideo(3, '6B2Oh-VLGv8');" alt="">
+
+                    </div>
+                    <div class="texto_tutorial" style="" onclick="openVideo(3, '6B2Oh-VLGv8');">
+
+                        <label>Como apagar uma foto ou video do Facebook</label>
+
+                    </div>
+
+
+                </div>
+                <div class="row embed_youtube" id="video3">
+
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                    <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10 contentVideo" id="insereVideo3" style="text-align: center;">
+
+                        <iframe class="iframe_youtube" src="http://www.youtube.com/embed/6B2Oh-VLGv8" frameborder="0" allowfullscreen></iframe>
+
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                    <div class="imgYoutube">
+
+                        <img src="contents/img/youtube.png" class="imgYoutube2" onclick="openVideo(4, 'qOrR5v9nTSg');" alt="">
+
+                    </div>
+                    <div class="texto_tutorial" style="" onclick="openVideo(4, 'qOrR5v9nTSg');">
+
+                        <label>Procurar Pessoas no Facebook</label>
+
+                    </div>
+
+
+                </div>
+                <div class="row embed_youtube" id="video4">
+
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                    <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10 contentVideo" id="insereVideo4" style="text-align: center;">
+
+                        <iframe class="iframe_youtube" src="http://www.youtube.com/embed/qOrR5v9nTSg" frameborder="0" allowfullscreen></iframe>
+
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                    <div class="imgYoutube">
+
+                        <img src="contents/img/youtube.png" class="imgYoutube2" onclick="openVideo(5, 'VDTJFwlLb3I');" alt="">
+
+                    </div>
+                    <div class="texto_tutorial" style="" onclick="openVideo(5, 'VDTJFwlLb3I');">
+
+                        <label>Configuração de privacidade do Facebook</label>
+
+                    </div>
+
+
+                </div>
+                <div class="row embed_youtube" id="video4">
+
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                    <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10 contentVideo" id="insereVideo5" style="text-align: center;">
+
+                        <iframe class="iframe_youtube" src="http://www.youtube.com/embed/VDTJFwlLb3I" frameborder="0" allowfullscreen></iframe>
+
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h1 onclick="carrega('app/main.html')">voltar</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
