@@ -10,8 +10,9 @@
 <script type="text/javascript" src="contents/bootstrap/js/bootstrap-lightbox.js"></script>
 
 <style>
-    .table-home img{
-        width: 75%;
+    .home img{
+        width: 70%;
+        padding: 5px 5px;
     }
     .table-home td{
         border: none !important;
@@ -19,64 +20,103 @@
     }
 </style>
 <div>
-	<div id="main">
+    <div id="main">
         <div data-role="page" style="display:block;">
-			<div data-role="header" data-position="fixed" data-theme="b" data-add-back-btn="true">
-				
-			</div>
-			<div class="wrapper">
-				<table class="table table-home">
-					<tbody>
-                        <tr>
-                            <td onclick="LigaContatoFavorito('99999999')">
+            <div data-role="header" data-position="fixed" data-theme="b" data-add-back-btn="true">
 
-                                <img src="contents/img/user-2.png">
-                                <label>Aline</label>
-                            </td>
+            </div>
+            <div class="wrapper home">
+                <div class="row">
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
 
-                            <td onclick="LigaContatoFavorito('99888888')">
+                    </div>
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="LigaContatoFavorito('99999999')">
+                        <center>
+                            <img src="contents/img/user-2.png">
+                            <p>Aline</p>
+                        </center>
+                    </div>
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="LigaContatoFavorito('99888888')">
+                        <center>
+                            <img src="contents/img/user-2.png">
+                            <p>Tiago</p>
+                        </center>
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
 
-                                <img src="contents/img/user-2.png">
-                                <label>Tiago</label>
-                            </td>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
 
-                        </tr>
-						<tr>
-							<td onclick="carrega('app/chamadas.html')">
-								
-									<img src="contents/img/chamdas.png" ></td>
-								
-							<td onclick="carrega('app/contatos.html')">
-							   
-									<img src="contents/img/contatos.png" ></td>
-							   
-						</tr>
-						<tr>
-							<td onclick="carrega('app/mensagens.html')">
-								<img src="contents/img/msgs.png" ></td>
-							<td onclick="carrega('app/aplicativos.html')">
-								<img src="contents/img/aplicativos.png"></td>
-						</tr>
-                        <tr>
-                            <td onclick="carrega('app/mensagens.html')">
-                                <img src="contents/img/msgs.png">
-                            </td>
-                            <td onclick="carrega('app/tutorial.html')">
-                                <img src="contents/img/tutorial.jpg">
-                            </td>
-                        </tr>
-						<tr style="position:absolute;bottom:0;">
-							<td colspan="2"><a href="tel:+1-800-555-1234"><img style="width: 88%;" src="contents/img/sos.png"></a></td>
-							
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div data-role="footer" data-position="fixed">
-				<h1></h1>
-			</div>
-		</div>
+                    </div>
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="carrega('app/chamadas.html')">
+                        <center>
+                            <img src="contents/img/chamdas.png" />
+                        </center>
+                    </div>
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="carrega('app/contatos.html')">
+                        <center>
+                            <img src="contents/img/contatos.png" />
+                        </center>
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="carrega('app/mensagens.html')">
+                        <center>
+                            <img src="contents/img/msgs.png">
+                        </center>
+                    </div>
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="carrega('app/aplicativos.html')">
+                        <center>
+                            <img src="contents/img/aplicativos.png" />
+                        </center>
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="carrega('app/mensagens.html')">
+                        <center>
+                            <img src="contents/img/msgs.png">
+                        </center>
+                    </div>
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="carrega('app/tutorial.html')">
+                        <center>
+                            <img src="contents/img/tutorial.jpg">
+                        </center>
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+                    <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10 btn-group">
+                        <center>
+                            <a href="tel:+1-800-555-1234">
+                                <img style="" src="contents/img/sos.png" />
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </div>
-    
-
 </div>
