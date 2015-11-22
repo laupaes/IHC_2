@@ -38,9 +38,12 @@
                 </div>
                 <div class="row">
                     
-                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="carrega('app/chamadas.html')">
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" >
                         <center>
+                            <div onclick="window.open('tel:', '_system', 'location=yes')">
+
                             <img src="contents/img/chamdas.png" />
+                        </div>
                         </center>
                     </div>
                     <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5">
@@ -67,7 +70,7 @@
                 </div>
                 <div class="row">
                     
-                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="carrega('app/mensagens.html')">
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="carrega('app/aplicativos.html')">
                         <center>
                             <img src="contents/img/aplicativos.png" />
                         </center>
@@ -83,9 +86,10 @@
                     
                     <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10 btn-group">
                         <center>
-                            <a href="tel:+1-800-555-1234">
+                            <div onclick="window.open('tel:555-555-555', '_system', 'location=yes')">
+                            <!-- <div onclick="call()">     -->
                                 <img style="" src="contents/img/sos.png" />
-                            </a>
+                           </div>
                         </center>
                     </div>
                    
@@ -95,3 +99,17 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+function call() {
+
+phonedialer.dial(
+  "2125551212", 
+  function(err) {
+    if (err == "empty") alert("Unknown phone number");
+    else alert("Dialer Error:" + err);    
+  },
+  function(success) { alert('Dialing succeeded'); }
+ );
+}
+</script>

@@ -21,6 +21,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"PhoneDialer\"><param name=\"android-package\" value=\"com.teamnemitoff.phonedialer.PhoneDialer\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>",
                             "count": 1
                         },
@@ -30,6 +34,10 @@
                         },
                         {
                             "xml": "<feature name=\"Sms\"><param name=\"android-package\" value=\"org.apache.cordova.plugin.sms.Sms\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Applist\"><param name=\"android-package\" value=\"org.jmrezayi2.Applist.Applist\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -57,11 +65,29 @@
                             "count": 2
                         },
                         {
+                            "xml": "<uses-permission android:name=\"android.permission.CALL_PHONE\" />",
+                            "count": 1
+                        },
+                        {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />",
                             "count": 1
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Apps\"><param name=\"android-package\" value=\"so.doo.app.plugins.Apps\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -79,6 +105,9 @@
         "com.monday.contact-chooser": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
+        "com.teamnemitoff.phonedialer": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
         "cordova-plugin-contacts": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
@@ -86,6 +115,12 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "org.apache.cordova.plugin.sms": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "apps": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-applist2": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
@@ -113,6 +148,14 @@
             "pluginId": "com.monday.contact-chooser",
             "clobbers": [
                 "ContactChooser"
+            ]
+        },
+        {
+            "file": "plugins/com.teamnemitoff.phonedialer/www/dialer.js",
+            "id": "com.teamnemitoff.phonedialer.phonedialer",
+            "pluginId": "com.teamnemitoff.phonedialer",
+            "merges": [
+                "phonedialer"
             ]
         },
         {
@@ -199,6 +242,22 @@
             "pluginId": "org.apache.cordova.plugin.sms",
             "clobbers": [
                 "window.sms"
+            ]
+        },
+        {
+            "file": "plugins/apps/www/apps.js",
+            "id": "apps.Apps",
+            "pluginId": "apps",
+            "clobbers": [
+                "apps"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-applist2/www/Applist.js",
+            "id": "cordova-plugin-applist2.Applist",
+            "pluginId": "cordova-plugin-applist2",
+            "clobbers": [
+                "window.Applist"
             ]
         }
     ]

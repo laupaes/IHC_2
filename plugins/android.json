@@ -16,6 +16,9 @@
         "com.monday.contact-chooser": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
+        "com.teamnemitoff.phonedialer": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
         "cordova-plugin-contacts": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
@@ -23,6 +26,12 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "org.apache.cordova.plugin.sms": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "apps": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-applist2": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },

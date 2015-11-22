@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class = "row">
-            <div class = "col-lg-10 col-sm-10 col-md-10 col-xs-10" onclick="app.sendSmsR()">
+            <div class = "col-lg-10 col-sm-10 col-md-10 col-xs-10" onclick="app.sendSms()">
                 <img src="contents/img/enviar-sms.png" \>
             </div>
         </center>
@@ -54,17 +54,17 @@
         <div class = "row">
             <center>
             <div class = "col-lg-5 col-sm-5 col-md-5 col-xs-5">
-                <input id = "messageButton" type= "button" value = "Me ligue urgente" onclick="app.sendSmsR()"/>
+                <input id = "messageButton" type= "button" value = "Me ligue urgente" onclick="appR.sendSmsR()"/>
             </div>
             <div class = "col-lg-5 col-sm-5 col-md-5 col-xs-5">
-                <input id = "messageButton" type= "button" value = "EMERGÊNCIA" onclick="app.sendSmsR()"/>
+                <input id = "messageButton" type= "button" value = "EMERGÊNCIA" onclick="appR.sendSmsR()"/>
             </div>
         </center>
         </div>
         <div class = "row">
             <center>
             <div class = "col-lg-10 col-sm-10 col-md-10 col-xs-10">
-                <input id = "messageButton" type= "button" value = "Como mando foto por whatsapp?" onclick="app.sendSmsR()"/>
+                <input id = "messageButton" type= "button" value = "Como mando foto por whatsapp?" onclick="appR.sendSmsR()"/>
             </div>
         </center>
         </div>
@@ -80,11 +80,22 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
+var telefone;
+var nome;
+
+function carrega(arquivo) {
+                $("#splash").load(arquivo);
+            }
+
 var app = {
     sendSms: function() {
-        var number = document.getElementById('numberTxt').value;
+        var number = "";
         var message = document.getElementById('messageTxt').value;
-        // alert(number);
+        if (telefone === undefined)
+            number = document.getElementById('numberTxt').value;
+        else
+            number = telefone;
+        alert("Enviando msg para: " + nome + " - " + number);
         // alert(message);
 
         //CONFIGURATION
@@ -96,46 +107,54 @@ var app = {
             }
         };
 
-        var success = function () { alert('Message sent successfully'); };
-        var error = function (e) { alert('Message Failed:' + e); };
+        var success = function () { alert('Mensagem enviada com sucesso'); };
+       // var error = function (e) { alert('Message Failed:' + e); };
+        
+        carrega('app/main.html');
         sms.send(number, message, options, success, error);
     }
 };
-</script>
 
-<script type="text/javascript" charset="utf-8">
-var app = {
-    sendSmsR: function() {
-        var number = document.getElementById('numberTxt').value;
-        var message = document.getElementById('messageButton').value;
-        // alert(number);
-        // alert(message);
-
-        //CONFIGURATION
-        var options = {
-            replaceLineBreaks: false, // true to replace \n by a new line, false by default
-            android: {
-                intent: 'INTENT'  // send SMS with the native android SMS messaging
-                //intent: '' // send SMS without open any other app
-            }
-        };
-
-        var success = function () { alert('Message sent successfully'); };
-        var error = function (e) { alert('Message Failed:' + e); };
-        sms.send(number, message, options, success, error);
-    }
-};
-</script>
-
-<script type="text/javascript" charset="utf-8">
 var contact = {
     pick: function() {    
+    var number = document.getElementById('numberTxt').value;
     window.plugins.ContactChooser.chooseContact(function (contactInfo) {
     setTimeout(function () { // use timeout to fix iOS alert problem
-        alert(contactInfo.displayName + " " + contactInfo.email + " " + contactInfo.phoneNumber);
+        // alert(contactInfo.displayName + " " + contactInfo.email + " " + contactInfo.phoneNumber);
+        // document.getElementById('numberTxt').textContent = contactInfo.phoneNumber;
+        telefone =  contactInfo.phoneNumber;
+        nome = contactInfo.displayName;
     }, 0);
     });
 }
 };
 
+var appR = {
+    sendSmsR: function() {
+        var number = "";
+        var message = document.getElementById('messageTxt').value;
+        if (telefone === undefined)
+            number = document.getElementById('numberTxt').value;
+        else
+            number = telefone;
+        alert("Enviando msg para: " + nome + " - " + number);
+        // alert(number);
+        // alert(message);
+
+        //CONFIGURATION
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+
+        var success = function () { alert('Mensagem enviada com sucesso'); };
+        // var error = function (e) { alert('Message Failed:' + e ); };
+        carrega('app/main.html');
+        sms.send(number, message, options, success, error);
+
+    }
+};
 </script>

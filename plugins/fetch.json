@@ -50,5 +50,32 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.teamnemitoff.phonedialer": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/anemitoff/PhoneGap-PhoneDialer",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "apps": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/weelion/phonegap-plugin-installed-apps",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-applist2": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jmrezayi2/Applist",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

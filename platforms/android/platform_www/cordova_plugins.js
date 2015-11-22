@@ -25,6 +25,14 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.teamnemitoff.phonedialer/www/dialer.js",
+        "id": "com.teamnemitoff.phonedialer.phonedialer",
+        "pluginId": "com.teamnemitoff.phonedialer",
+        "merges": [
+            "phonedialer"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-contacts/www/contacts.js",
         "id": "cordova-plugin-contacts.contacts",
         "pluginId": "cordova-plugin-contacts",
@@ -108,6 +116,22 @@ module.exports = [
         "pluginId": "org.apache.cordova.plugin.sms",
         "clobbers": [
             "window.sms"
+        ]
+    },
+    {
+        "file": "plugins/apps/www/apps.js",
+        "id": "apps.Apps",
+        "pluginId": "apps",
+        "clobbers": [
+            "apps"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-applist2/www/Applist.js",
+        "id": "cordova-plugin-applist2.Applist",
+        "pluginId": "cordova-plugin-applist2",
+        "clobbers": [
+            "window.Applist"
         ]
     }
 ];
