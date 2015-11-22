@@ -1,11 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
-    <feature name="Sms">
-        <param name="android-package" value="org.apache.cordova.plugin.sms.Sms" />
-    </feature>
     <feature name="OrientationChanger">
         <param name="android-package" value="com.boyvanderlaak.cordova.plugin.orientationchanger.OrientationChanger" />
+    </feature>
+    <feature name="Sms">
+        <param name="android-package" value="com.cordova.plugins.sms.Sms" />
+    </feature>
+    <feature name="ContactChooser">
+        <param name="android-package" value="com.monday.cordova.ContactChooserPlugin" />
+    </feature>
+    <feature name="Contacts">
+        <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
     </feature>
     <allow-intent href="market:*" />
     <name>Hello World</name>
@@ -81,4 +91,14 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:supportsRtl="true">
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar" android:windowSoftInputMode="adjustResize">
+            <intent-filter android:label="@string/launcher_name">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 </widget>

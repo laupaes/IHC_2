@@ -1,35 +1,82 @@
+<script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
 <script type="text/javascript" src="scripts/angular/angular.min.js"></script>
 <script type="text/javascript" src="scripts/angular/angular-route.min.js"></script>
 <script type="text/javascript" src="scripts/angular/angular-translate.js"></script>
 
-
-
 <link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile-1.4.5.min.css">
 
-<script type="text/javascript" src="contents/js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="scripts/ui-bootstrap-tpls-0.11.2.min.js"></script>
+<script type="text/javascript" src="contents/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="contents/bootstrap/js/bootstrap-lightbox.js"></script>
 
-<script id="script" src="http://cdn.rawgit.com/arschmitz/jquery-mobile-nestedlists/master/jquery.mobile.nestedlists.js"></script>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<style>
+    .home img{
+        width: 10%;
+        padding: 5px 5px;
+    }
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-
+.verticalLine {
+    border-left: thick solid #ff0000;
+}
+</style>
 
 <div>
 	<div class = "wraper">
-		<input id="numberTxt" placeholder="Insira Número" value="" type="tel" />
-		<textarea id="messageTxt" placeholder="Adicionar Mensagem"></textarea>
-		<input type="button" style="font-face: 'Comic Sans MS'; font-size: larger; color: white; background-color: green"  onclick="app.sendSms()" value="Enviar SMS" />
+        <h1> NOVA MENSAGEM </h1>
+        <div class= "row">
+            <center>
+            <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="contact.pick()">
+                <img src="contents/img/buscar-contato.png" \>
+            </div>
+            <div class="verticalLine"></div>
+            <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5">
+                <input id="numberTxt" placeholder="Insira Número" value="" type="tel" />
+            </div>
+            </center>
+        </div>
+		<hline>
+        <div class = "row">
+            <center>
+		<h2>Escreva sua mensagem</2>
+            <div class= "col-lg-10 col-sm-10 col-md-10 col-xs-10">
+            <input id = "messageTxt" type= "text" value = "" placeholder = "Toque aqui e comece a digitar"/>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-lg-10 col-sm-10 col-md-10 col-xs-10" onclick="app.sendSmsR()">
+                <img src="contents/img/enviar-sms.png" \>
+            </div>
+        </center>
+        </div>
+
+        <hline>
+        <div class = "row">
+            <center>
+            <div class = "col-lg-5 col-sm-5 col-md-5 col-xs-5">
+                <input id = "messageButton" type= "button" value = "Me ligue urgente" onclick="app.sendSmsR()"/>
+            </div>
+            <div class = "col-lg-5 col-sm-5 col-md-5 col-xs-5">
+                <input id = "messageButton" type= "button" value = "EMERGÊNCIA" onclick="app.sendSmsR()"/>
+            </div>
+        </center>
+        </div>
+        <div class = "row">
+            <center>
+            <div class = "col-lg-10 col-sm-10 col-md-10 col-xs-10">
+                <input id = "messageButton" type= "button" value = "Como mando foto por whatsapp?" onclick="app.sendSmsR()"/>
+            </div>
+        </center>
+        </div>
 	</div>
-	
-	<!-- <div data-role="footer" data-position="fixed"> -->
-        <input type="button" style="font-face: 'Comic Sans MS'; font-size: larger; color: white; background-color: red" style="text-color:white" onclick="carrega('app/main.html')" value = "Voltar" />
-    <!-- </div> -->
+	<div class = "footer" data-position="fixed">
+        <center>
+	   <div class = "col-lg-10 col-sm-10 col-md-10 col-xs-10" onclick="carrega('app/main.html')">
+            <img src = "contents/img/voltar.png">
+        </div>
+    </center>
+        <!-- <input type="button" style="font-face: 'Comic Sans MS'; font-size: larger; color: white; background-color: red" style="text-color:white" onclick="carrega('app/main.html')" value = "Voltar" /> -->
+    </div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -54,4 +101,41 @@ var app = {
         sms.send(number, message, options, success, error);
     }
 };
+</script>
+
+<script type="text/javascript" charset="utf-8">
+var app = {
+    sendSmsR: function() {
+        var number = document.getElementById('numberTxt').value;
+        var message = document.getElementById('messageButton').value;
+        // alert(number);
+        // alert(message);
+
+        //CONFIGURATION
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+
+        var success = function () { alert('Message sent successfully'); };
+        var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(number, message, options, success, error);
+    }
+};
+</script>
+
+<script type="text/javascript" charset="utf-8">
+var contact = {
+    pick: function() {    
+    window.plugins.ContactChooser.chooseContact(function (contactInfo) {
+    setTimeout(function () { // use timeout to fix iOS alert problem
+        alert(contactInfo.displayName + " " + contactInfo.email + " " + contactInfo.phoneNumber);
+    }, 0);
+    });
+}
+};
+
 </script>
