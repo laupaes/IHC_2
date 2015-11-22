@@ -1,17 +1,60 @@
+
+<script type="text/javascript" charset="utf-8">
+var app = {
+    inserir: function(value) {
+    var number = document.getElementById('number').value;
+    number = number + value;
+    // $('#number'.value).append("1");
+    document.getElementById('number').value = number;
+    // alert(document.getElementById('number').value);
+    // alert(this.value);
+    }
+};
+var call = {
+    ligar: function(){
+        var number = document.getElementById('number').value;
+        phonedialer.dial(number);   
+    }
+};
+var number = {
+    delete: function(){
+        var number = document.getElementById('number').value;
+        if (number !== ""){
+            var aux = number.substr(0, number.length-1); 
+            document.getElementById('number').value = aux;
+        }
+    }
+};
+</script>
+
 <style>
     img{
-        width: 50%;
-        /*padding: 5px 5px;*/
+        /*border: 5px;*/
+        width: 90%;
+        padding: 1px 1px;
+    }
+    button {
+        background-color: yellow; 
+        padding: 2px 4px;
+    font: 28px sans-serif;
+    text-decoration: none;
+    /*border: 1px solid #000;*/
+    /*border-color: #aaa #444 #444 #aaa;*/
+    color: #000
     }
 </style>
 
 <div>
 	<div class = "header">
-		<h1> NOVA CHAMADA </h1>
+		<h1> <center>NOVA CHAMADA </center></h1>
 	</div>
 	<div class = "wrapper">
-		<input type="text" id= "number" value = "" disabled="disabled">
-        <button onclick="number.delete()" id="apagar">APAGAR</button>
+        <center>
+        <div class="row">
+        <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"> </div>
+		  <input style ="font-size:26px" class = "col-lg-6 col-sm-6 col-md-6 col-xs-6" type="text" id= "number" value = "" disabled="disabled">
+            <button class = "col-lg-4 col-sm-4 col-md-4 col-xs-4" onclick="number.delete()" id="apagar">APAGAR</button>
+            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"> </div>        </div>
 		<table >
 		  <tr>
 		    <td><div onClick="app.inserir(1)" ><img src="contents/img/1.png"></div></td>
@@ -38,33 +81,17 @@
 		</table>
 		
 		<div onclick= "call.ligar()">
-			<img style="width: 50%" src= "contents/img/ligar.png">
+			<img style="width: 90%" src= "contents/img/ligar.png">
 		</div>
 	</div>
+    </center>
+    <div class = "footer" data-position="fixed">
+        <center>
+       <div class = "col-lg-12 col-sm-12 col-md-12 col-xs-12" onclick="carrega('app/main.html')">
+            <img src = "contents/img/voltar.png">
+        </div>
+        </center>
+        <!-- <input type="button" style="font-face: 'Comic Sans MS'; font-size: larger; color: white; background-color: red" style="text-color:white" onclick="carrega('app/main.html')" value = "Voltar" /> -->
+    </div>
 </div>
 
-<script type="text/javascript" charset="utf-8">
-var app = {
-    inserir: function(value) {
-    var number = document.getElementById('number').value;
-    number = number + value;
-    // $('#number'.value).append("1");
-	document.getElementById('number').value = number;
-    // alert(document.getElementById('number').value);
-	// alert(this.value);
-	}
-};
-var call = {
-    ligar: function(){
-        var number = document.getElementById('number').value;
-        phonedialer.dial(number);   
-    }
-};
-var number = {
-    delete: function(){
-        var number = document.getElementById('number').value;
-        var aux = number.substr(0, number.length-1); 
-        document.getElementById('number').value = aux;
-    }
-};
-</script>
