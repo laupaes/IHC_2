@@ -86,7 +86,7 @@ var nome;
 function carrega(arquivo) {
                 $("#splash").load(arquivo);
             }
-            
+
 var app = {
     sendSms: function() {
         var number = "";
@@ -109,8 +109,9 @@ var app = {
 
         var success = function () { alert('Mensagem enviada com sucesso'); };
        // var error = function (e) { alert('Message Failed:' + e); };
-        sms.send(number, message, options, success, error);
+        
         carrega('app/main.html');
+        sms.send(number, message, options, success, error);
     }
 };
 
@@ -151,8 +152,9 @@ var appR = {
 
         var success = function () { alert('Mensagem enviada com sucesso'); };
         // var error = function (e) { alert('Message Failed:' + e ); };
-        // sms.send(number, message, options, success, error);
         carrega('app/main.html');
+        sms.send(number, message, options, success, error);
+
     }
 };
 </script>
