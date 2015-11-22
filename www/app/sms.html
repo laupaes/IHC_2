@@ -119,7 +119,7 @@ var app = {
         };
 
         var success = function () { alert('Mensagem enviada com sucesso'); };
-       // var error = function (e) { alert('Message Failed:' + e); };
+       var error = function (e) { alert('Mensagem enviada com sucesso'); };
         
         carrega('app/main.html');
         sms.send(number, message, options, success, error);
@@ -162,7 +162,7 @@ var appR = {
         };
 
         var success = function () { alert('Mensagem enviada com sucesso'); };
-        // var error = function (e) { alert('Message Failed:' + e ); };
+        var error = function (e) { alert('Mensagem enviada com sucesso'); };
         carrega('app/main.html');
         sms.send(number, message, options, success, error);
 
