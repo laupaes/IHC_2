@@ -1,0 +1,70 @@
+<style>
+    img{
+        width: 50%;
+        /*padding: 5px 5px;*/
+    }
+</style>
+
+<div>
+	<div class = "header">
+		<h1> NOVA CHAMADA </h1>
+	</div>
+	<div class = "wrapper">
+		<input type="text" id= "number" value = "" disabled="disabled">
+        <button onclick="number.delete()" id="apagar">APAGAR</button>
+		<table >
+		  <tr>
+		    <td><div onClick="app.inserir(1)" ><img src="contents/img/1.png"></div></td>
+		    <td><div onClick="app.inserir(2)" ><img src="contents/img/2.png"></div></td>
+		    <td><div onClick="app.inserir(3)" > <img src="contents/img/3.png"></div></td>
+		  </tr>
+		  <tr>
+		    <td><div onClick="app.inserir(4)" ><img src="contents/img/4.png"></div></td>
+		    <td><div onClick="app.inserir(5)" ><img src="contents/img/5.png"></div></td>
+		    <td><div onClick="app.inserir(6)" ><img src="contents/img/6.png"></div></td>
+		    
+		  </tr>
+		  <tr>
+		    <td><div onClick="app.inserir(7)" ><img src="contents/img/7.png"></div></td>
+		    <td><div onClick="app.inserir(8)" ><img src="contents/img/8.png"></div></td>
+		    <td><div onClick="app.inserir(9)" ><img src="contents/img/9.png"></div></td>
+		    
+		  </tr>
+		  <tr>
+		    <td><div onClick="app.inserir('*')" ><img src="contents/img/*.png"></div></td>
+		    <td><div onClick="app.inserir(0)" ><img src="contents/img/0.png"></div></td>
+		    <td><div onClick="app.inserir('#')" ><img src="contents/img/hash.png"></div></td>
+		  </tr>
+		</table>
+		
+		<div onclick= "call.ligar()">
+			<img style="width: 50%" src= "contents/img/ligar.png">
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+var app = {
+    inserir: function(value) {
+    var number = document.getElementById('number').value;
+    number = number + value;
+    // $('#number'.value).append("1");
+	document.getElementById('number').value = number;
+    // alert(document.getElementById('number').value);
+	// alert(this.value);
+	}
+};
+var call = {
+    ligar: function(){
+        var number = document.getElementById('number').value;
+        phonedialer.dial(number);   
+    }
+};
+var number = {
+    delete: function(){
+        var number = document.getElementById('number').value;
+        var aux = number.substr(0, number.length-1); 
+        document.getElementById('number').value = aux;
+    }
+};
+</script>
