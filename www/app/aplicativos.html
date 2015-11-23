@@ -42,6 +42,19 @@ var aplicativos = {
     }
 };
 
+var aplicativo = {
+    abrir: function(){
+        alert("oi");
+        var aplicativos = {
+        mostrar: function(){
+        var data1 = new Date("2012-02-29");
+        var data2 = new Date("2015-12-29");
+        Applist.createEvent("bla", "bla bla", "bla bla bla", data1, data2, success, error);
+    }
+};
+    }
+};
+
 function success (app_list) { 
     // alert(JSON.stringify((app_list[0])));
     // alert(app_list[0].img);
@@ -54,7 +67,7 @@ function success (app_list) {
         name = app_list[i].name;
         logo = app_list[i].img;
   
-        html += '<li> <a onclick="">'; 
+        html += '<li> <a onclick="aplicativo.abrir()">'; 
         html+= "<img src='" + logo + "'>";
         html +=  name + '</a>';
         html += '</li>';
