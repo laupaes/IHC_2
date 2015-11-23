@@ -9,11 +9,12 @@
 <style>
     li img{
         width: 60px;
+        height: 60px;
         padding: 5px 5px;
     }
     img{
         width: 180px;
-        height: 40px;
+        height: 45px;
         padding: 5px 5px;
 
     }
@@ -66,7 +67,7 @@
                 name = contacts[i].displayName ? contacts[i].displayName : contacts[i].nickName;
                 if (contacts[i].phoneNumbers) {
                     // for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-                    html += '<li> <a onclick="phonedialer.dial(' + contacts[i].phoneNumbers.value + ')">' 
+                    html += '<li> <a onclick="phonedialer.dial(' + contacts[i].phoneNumbers[0].value + ')">' 
                     if(contacts[i].photos && contacts[i].photos.length) {
                         html+= "<img src='"+contacts[i].photos[0].value+"'>";
                     } else {

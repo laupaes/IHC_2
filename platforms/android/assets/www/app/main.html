@@ -74,16 +74,15 @@
                 <div class="row">
                                 <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"> </div>       
 
-                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="LigaContatoFavorito('99999999')">
+                    <div id = "divFav1" class="col-lg-5 col-sm-5 col-md-5 col-xs-5" >
                         <center>
-                            <img src="contents/img/user-2.png">
-                            <p>Aline</p>
+                            <img id = "imaFav1" src="contents/img/user-2.png" onclick="contact1.pick1()">
+                            <!-- <p>Aline</p> -->
                         </center>
                     </div>
-                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" onclick="LigaContatoFavorito('99888888')">
+                    <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" >
                         <center>
-                            <img src="contents/img/user-2.png">
-                            <p>Tiago</p>
+                            <img id = "imaFav2" src="contents/img/user-2.png" onclick="contact2.pick2()">
                         </center>
                     </div>
                     
@@ -108,3 +107,97 @@
     </div>
 </div>
 
+<script type="text/javascript">
+var number = "";
+
+var contact1 = {
+    pick1: function() {  
+    var src= document.getElementById('imaFav1').src;
+    if( src.indexOf("user-2") > -1){  
+        window.plugins.ContactChooser.chooseContact(function (contactInfo) {
+        setTimeout(function () { // use timeout to fix iOS alert problem
+            // alert(contactInfo.displayName + " " + contactInfo.email + " " + contactInfo.phoneNumber);
+            // document.getElementById('numberTxt').textContent = contactInfo.phoneNumber;
+            var telefone =  contactInfo.phoneNumber;
+            var nome = contactInfo.displayName;
+            // alert(nome);
+            // find all contacts with 'Bob' in any name field
+            var options      = new ContactFindOptions();
+            options.filter   = nome;
+            options.multiple = false;
+            // options.desiredFields = [navigator.contacts.fieldType.id];
+            var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name, navigator.contacts.fieldType.nickname];
+            navigator.contacts.find(fields, onSuccess, onError, options);
+
+        }, 0);
+    });
+    } else {
+        phonedialer.dial(number);
+    }
+    
+    }
+};
+
+var contact2 = {
+    pick2: function() {  
+    var src= document.getElementById('imaFav2').src;
+    if( src.indexOf("user-2") > -1){  
+        window.plugins.ContactChooser.chooseContact(function (contactInfo) {
+        setTimeout(function () { // use timeout to fix iOS alert problem
+            // alert(contactInfo.displayName + " " + contactInfo.email + " " + contactInfo.phoneNumber);
+            // document.getElementById('numberTxt').textContent = contactInfo.phoneNumber;
+            var telefone =  contactInfo.phoneNumber;
+            var nome = contactInfo.displayName;
+            // alert(nome);
+            // find all contacts with 'Bob' in any name field
+            var options      = new ContactFindOptions();
+            options.filter   = nome;
+            options.multiple = false;
+            // options.desiredFields = [navigator.contacts.fieldType.id];
+            var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name, navigator.contacts.fieldType.nickname];
+            navigator.contacts.find(fields, onSuccess2, onError, options);
+
+        }, 0);
+    });
+    } else {
+        phonedialer.dial(number);
+    }
+    
+    }
+};
+
+function showContact (contact) {
+    // alert("oi");
+    alert(JSON.stringify(contact));
+}
+
+function onSuccess(contacts) {
+            // alert('Found ' + contacts.length + ' contacts.');
+
+            
+            alert(contacts[0].displayName + contacts[0].photos);
+            var foto = contacts[0].photos[0].value;
+            number = contacts[0].phoneNumbers[0].value;
+            document.getElementById('imaFav1').src = foto;
+            document.getElementById('imaFav1').value === "0"
+// navigator.contacts.pickContact(showContact(contacts[0]), onError);
+            // alert(contacts[0].displayName);
+        }
+
+function onSuccess2(contacts) {
+            // alert('Found ' + contacts.length + ' contacts.');
+
+            
+            alert(contacts[0].displayName + contacts[0].photos);
+            var foto = contacts[0].photos[0].value;
+            number = contacts[0].phoneNumbers[0].value;
+            document.getElementById('imaFav2').src = foto;
+            document.getElementById('imaFav2').value === "0"
+// navigator.contacts.pickContact(showContact(contacts[0]), onError);
+            // alert(contacts[0].displayName);
+        }
+
+function onError(contactError) {
+            alert('onError!');
+        }
+</script>
