@@ -33,6 +33,9 @@
         },
         "cordova-plugin-applist2": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "net.tunts.webintent": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {}

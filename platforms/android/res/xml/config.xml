@@ -23,6 +23,9 @@
     <feature name="Applist">
         <param name="android-package" value="org.jmrezayi2.Applist.Applist" />
     </feature>
+    <feature name="WebIntent">
+        <param name="android-package" value="net.tunts.webintent.WebIntent" />
+    </feature>
     <feature name="Apps">
         <param name="android-package" value="so.doo.app.plugins.Apps" />
     </feature>

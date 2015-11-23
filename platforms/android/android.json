@@ -39,6 +39,10 @@
                         {
                             "xml": "<feature name=\"Applist\"><param name=\"android-package\" value=\"org.jmrezayi2.Applist.Applist\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"WebIntent\"><param name=\"android-package\" value=\"net.tunts.webintent.WebIntent\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -121,6 +125,9 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "cordova-plugin-applist2": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "net.tunts.webintent": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
@@ -258,6 +265,14 @@
             "pluginId": "cordova-plugin-applist2",
             "clobbers": [
                 "window.Applist"
+            ]
+        },
+        {
+            "file": "plugins/net.tunts.webintent/www/webintent.js",
+            "id": "net.tunts.webintent.WebIntent",
+            "pluginId": "net.tunts.webintent",
+            "clobbers": [
+                "WebIntent"
             ]
         }
     ]

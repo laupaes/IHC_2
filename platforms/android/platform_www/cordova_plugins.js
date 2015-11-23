@@ -133,6 +133,14 @@ module.exports = [
         "clobbers": [
             "window.Applist"
         ]
+    },
+    {
+        "file": "plugins/net.tunts.webintent/www/webintent.js",
+        "id": "net.tunts.webintent.WebIntent",
+        "pluginId": "net.tunts.webintent",
+        "clobbers": [
+            "WebIntent"
+        ]
     }
 ];
 module.exports.metadata = 

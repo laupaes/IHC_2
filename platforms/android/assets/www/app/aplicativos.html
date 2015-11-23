@@ -1,6 +1,99 @@
+<link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile-1.4.5.min.css">
+<script id="script" src="http://cdn.rawgit.com/arschmitz/jquery-mobile-nestedlists/master/jquery.mobile.nestedlists.js"></script>
+
+<style>
+    li img{
+        width: 60px;
+        height: 60px;
+        padding: 5px 5px;
+    }
+    /*img{
+        width: 180px;
+        height: 45px;
+        padding: 5px 5px;
+
+    }*/
+    
+    li {
+    background: yellow;
+    margin: 10px;
+    font-size: 28px;
+    }
+    ul {
+    list-style-type: none;
+    background: white;
+    margin: 10px;
+    font-size: 28px;
+    }
+
+</style>
+
 <script type="text/javascript">
-	var success = function(app_list) { alert(JSON.stringify((app_list)); };
-    var error = function(err) { alert("Oopsie! " + err); };
-    Applist.createEvent(success, error)
+window.onload = function() {
+    alert("oi");
+  aplicativos.mostrar();
+};
+
+var aplicativos = {
+    mostrar: function(){
+    	var data1 = new Date("2012-02-29");
+    	var data2 = new Date("2015-12-29");
+        Applist.createEvent("bla", "bla bla", "bla bla bla", data1, data2, success, error);
+    }
+};
+
+function success (app_list) { 
+    // alert(JSON.stringify((app_list[0])));
+    // alert(app_list[0].img);
+    var html = "";
+    var name = "";
+    var logo = "";
+   
+   // alert(app_list[1]);
+    for (var i = 0; i < app_list.length; i++) {
+        name = app_list[i].name;
+        logo = app_list[i].img;
+  
+        html += '<li> <a onclick="">'; 
+        html+= "<img src='" + logo + "'>";
+        html +=  name + '</a>';
+        html += '</li>';
+    }
+    
+    $("#appList").html(html);
+
+    $("#appList").listview().listview('refresh');
+    $(".innerlsv").listview().listview('refresh');
+}
+
+function error (err) { 
+    alert("Oopsie! " + err); 
+}
+
 </script>
 
+<div class= "wrapper" onclick="aplicativos.mostrar()">
+    <h1><center>APLICATIVOS</center></h1>
+	<div data-position="fixed">
+        <center>
+       <div class = "col-lg-12 col-sm-12 col-md-12 col-xs-12" onclick="carrega('app/main.html')">
+            <img src = "contents/img/voltar.png">
+        </div>
+        </center>
+    </div>
+    <!-- <div onclick="aplicativos.mostrar()">
+		<img src = "contents/img/voltar.png">
+	</div> -->
+    
+	<div class="row">
+		<ul class = "col-lg-12 col-sm-12 col-md-12 col-xs-12" id="appList" data-role="listview" data-filter="true" data-filter-placeholder="Procurar Aplicativo..." data-inset="true">
+            <!-- <li> -->
+                <h4>Carregando Aplicativos..</h4>
+            <!-- </li> -->
+ 
+        </ul>
+	</div>
+	
+</div>
+
+<script type="text/javascript" src="contents/js/jquery.mobile-1.4.5.min.js"></script>
