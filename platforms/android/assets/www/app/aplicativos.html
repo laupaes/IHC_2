@@ -30,7 +30,7 @@
 
 <script type="text/javascript">
 window.onload = function() {
-    alert("oi");
+    // alert("oi");
   aplicativos.mostrar();
 };
 
@@ -39,6 +39,19 @@ var aplicativos = {
     	var data1 = new Date("2012-02-29");
     	var data2 = new Date("2015-12-29");
         Applist.createEvent("bla", "bla bla", "bla bla bla", data1, data2, success, error);
+    }
+};
+
+var aplicativo = {
+    abrir: function(){
+        // alert("oi");
+        var aplicativos = {
+        mostrar: function(){
+        var data1 = new Date("2012-02-29");
+        var data2 = new Date("2015-12-29");
+        Applist.createEvent("bla", "bla bla", "bla bla bla", data1, data2, success, error);
+    }
+};
     }
 };
 
@@ -54,7 +67,7 @@ function success (app_list) {
         name = app_list[i].name;
         logo = app_list[i].img;
   
-        html += '<li> <a onclick="">'; 
+        html += '<li> <a onclick="aplicativo.abrir()">'; 
         html+= "<img src='" + logo + "'>";
         html +=  name + '</a>';
         html += '</li>';
@@ -73,23 +86,19 @@ function error (err) {
 </script>
 
 <div class= "wrapper" onclick="aplicativos.mostrar()">
+    <div class="row">
     <h1><center>APLICATIVOS</center></h1>
-	<div data-position="fixed">
-        <center>
+	</div>
+    <div class="row">
        <div class = "col-lg-12 col-sm-12 col-md-12 col-xs-12" onclick="carrega('app/main.html')">
             <img src = "contents/img/voltar.png">
         </div>
-        </center>
     </div>
-    <!-- <div onclick="aplicativos.mostrar()">
-		<img src = "contents/img/voltar.png">
-	</div> -->
-    
 	<div class="row">
 		<ul class = "col-lg-12 col-sm-12 col-md-12 col-xs-12" id="appList" data-role="listview" data-filter="true" data-filter-placeholder="Procurar Aplicativo..." data-inset="true">
-            <!-- <li> -->
+            <li>
                 <h4>Carregando Aplicativos..</h4>
-            <!-- </li> -->
+            </li>
  
         </ul>
 	</div>
