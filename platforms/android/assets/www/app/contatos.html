@@ -6,6 +6,34 @@
 
 <link rel="stylesheet" type="text/css" href="contents/css/jquery.mobile-1.4.5.min.css">
 
+<style>
+    li img{
+        width: 60px;
+        padding: 5px 5px;
+    }
+    img{
+        width: 180px;
+        height: 40px;
+        padding: 5px 5px;
+
+    }
+    
+
+    
+    li {
+    background: yellow;
+    margin: 10px;
+    font-size: 28px;
+    }
+    ul
+    {
+    list-style-type: none;
+    background: white;
+    margin: 10px;
+    font-size: 28px;
+    }
+</style>
+
 <script type="text/javascript" src="contents/js/jquery.mobile-1.4.5.min.js"></script>
 
 <script id="script" src="http://cdn.rawgit.com/arschmitz/jquery-mobile-nestedlists/master/jquery.mobile.nestedlists.js"></script>
@@ -32,21 +60,31 @@
 
         var html = "";
         var name = "";
-        
+       
         for (var i = 0; i < contacts.length; i++) {
             if ($.trim(contacts[i].displayName).length != 0 || $.trim(contacts[i].nickName).length != 0) {
                 name = contacts[i].displayName ? contacts[i].displayName : contacts[i].nickName;
                 if (contacts[i].phoneNumbers) {
-                    for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-                        html += '<li> <a href="tel:' + contacts[i].phoneNumbers[j].value + '">' + name + '</a>';
-                        html += '</li>';
+                    // for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+                    html += '<li> <a onclick="phonedialer.dial(' + contacts[i].phoneNumbers.value + ')">' 
+                    if(contacts[i].photos && contacts[i].photos.length) {
+                        html+= "<img src='"+contacts[i].photos[0].value+"'>";
+                    } else {
+                        html+= "<img src='contents/img/user-2.png'>";
                     }
+
+                    html +=  name + '</a>';
+                    
+                    
+                    html += '</li>';
+                    // }
                 }
             }
         }
+       
         if (contacts.length === 0) {
             html = '<li>';
-            html += '<h2>No Contacts</h2>';
+            html += '<h2>Não existem contatos</h2>';
             html += '</li>';
         }
         
@@ -68,11 +106,23 @@
     <div id="main">
     <div data-role="page">
     <div class="wrapper">
-        <h1>Contatos</h1>
-        <ul id="contactsList" data-role="listview" data-filter="true" data-filter-placeholder="Procurar..." data-inset="true">
-            <li>
-                <h2>Carregando Contatos..</h2>
-            </li>
+        <h1><center>Contatos</center></h1>
+        <div class = "row">
+
+            <div class = "col-lg-6 col-sm-6 col-md-6 col-xs-6" onclick="carrega('app/main.html')">
+                <img src = "contents/img/voltar.png">
+            </div>
+            <div class = "col-lg-6 col-sm-6 col-md-6 col-xs-6" onclick="carrega('app/novo_contato.html')">
+                <img src = "contents/img/novo.png">
+            </div>
+        </center>
+        <!-- <input type="button" style="font-face: 'Comic Sans MS'; font-size: larger; color: white; background-color: red" style="text-color:white" onclick="carrega('app/main.html')" value = "Voltar" /> -->
+        </div>
+        <!-- TODO - filtro... -->
+        <ul class = "col-lg-12 col-sm-12 col-md-12 col-xs-12" id="contactsList" data-role="listview" data-filter="true" data-filter-placeholder="Procurar Contato..." data-inset="true">
+            <!-- <li> -->
+                <h4>Carregando Contatos..</h4>
+            <!-- </li> -->
  
         </ul>
 		
@@ -85,14 +135,7 @@
 			<li><a href="index.html">Christopher Adams</a></li>
 			<li><a href="index.html">Culver James</a></li>
 		</!--ul-->
-    <div class = "footer" data-position="fixed">
-        <center>
-       <div class = "col-lg-10 col-sm-10 col-md-10 col-xs-10" onclick="carrega('app/main.html')">
-            <img src = "contents/img/voltar.png">
-        </div>
-        </center>
-        <!-- <input type="button" style="font-face: 'Comic Sans MS'; font-size: larger; color: white; background-color: red" style="text-color:white" onclick="carrega('app/main.html')" value = "Voltar" /> -->
-    </div>
+    
     </div>
     
 </div>
