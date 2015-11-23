@@ -27,12 +27,12 @@
         <param name="android-package" value="so.doo.app.plugins.Apps" />
     </feature>
     <allow-intent href="market:*" />
-    <name>Hello World</name>
+    <name>Launcher Terceira Idade</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Launcher para a terceira idade.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="nathy.fernandez@gmail.com" href="">
+        Elaine, Laura e Natalie
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
